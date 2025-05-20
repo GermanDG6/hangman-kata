@@ -24,24 +24,28 @@ export class Hangman {
 
 export class Game {
   private readonly secretWord;
-  private tries;
+  private trials;
 
-  constructor(secretWord, tries) {
+  constructor(secretWord, trials) {
     this.secretWord = secretWord;
-    this.tries;
+    this.trials = trials;
   }
 
   tryTo(trial: string) {
     const hasMultipleCharacters = trial.length > 1;
     if (hasMultipleCharacters) {
-      return new MultipleLettersNotAllowedError(this.secretWord, this.tries);
+      return new MultipleLettersNotAllowedError(this.secretWord, this.trials);
     }
 
     const containsSymbols = /[^a-zA-Z]+$/.test(trial);
     if (containsSymbols)
-      return new SymbolsNotAllowedError(this.secretWord, this.tries);
+      return new SymbolsNotAllowedError(this.secretWord, this.trials);
 
-    return new Game(this.secretWord, this.tries);
+    return new Game(this.secretWord, this.trials);
+  }
+
+  availableTrials() {
+    return this.trials;
   }
 
   error() {
