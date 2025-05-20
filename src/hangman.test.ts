@@ -27,4 +27,12 @@ describe('The Hangman ', () => {
 
     expect(trial.error()).toBe(GameError.MultipleLettersNotAllowed);
   });
+
+  it('does not allow symbols at each trial', () => {
+    const game = Hangman.startGame('house', 4);
+
+    const attempt = game.tryTo('!');
+
+    expect(attempt.error()).toBe(GameError.SymbolsNotAllowed);
+  });
 });
