@@ -23,8 +23,9 @@ export class Hangman {
 }
 
 export class Game {
-  private readonly secretWord;
-  private lives;
+  private readonly secretWord: string;
+  private lives: number;
+  private trials: string[] = [];
 
   constructor(secretWord, lives) {
     this.secretWord = secretWord;
@@ -41,6 +42,8 @@ export class Game {
     if (containsSymbols)
       return new SymbolsNotAllowedError(this.secretWord, this.lives);
 
+    this.trials.push(trial);
+
     return new Game(this.secretWord, this.lives);
   }
 
@@ -51,7 +54,9 @@ export class Game {
   revealedWord(): any {
     let revealedWord = '';
     for (const letter of this.secretWord) {
-      revealedWord += '_';
+      this.trials.includes(letter)
+        ? (revealedWord += letter)
+        : (revealedWord += '_');
     }
     return revealedWord;
   }
