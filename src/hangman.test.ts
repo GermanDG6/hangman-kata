@@ -58,4 +58,12 @@ describe('The Hangman ', () => {
 
     expect(game.revealedWord()).toBe('_e_');
   });
+
+  it('should subtract one life if it does not guess the letter', () => {
+    const game = Hangman.startGame('red', 3);
+
+    game.tryTo('w');
+
+    expect(game.availableLives()).toBe(2);
+  });
 });
