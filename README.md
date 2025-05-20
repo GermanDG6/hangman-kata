@@ -1,4 +1,4 @@
-- Debe recibir una palabra secreta que esté en el diccionario
+- Debe recibir una palabra secreta que esté en el diccionario (TODO...)
 - La palabra debe contener solamente vocales y consonantes
 - Debe recibir un número máximo de intentos para adivinar la palabra
 
