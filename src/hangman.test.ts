@@ -44,4 +44,10 @@ describe('The Hangman ', () => {
 
     expect(attempt.availableTrials()).toBe(trials);
   });
+
+  it('should show an underscore for each letter of the secret word', () => {
+    const game = Hangman.startGame('red', 3);
+
+    expect(game.revealedWord()).toBe('___');
+  });
 });
