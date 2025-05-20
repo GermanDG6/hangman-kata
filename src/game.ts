@@ -45,6 +45,12 @@ export class Game {
     return false;
   }
 
+  gameStatus(): GameStatus {
+    if (/[_]/.test(this.revealedWord())) return GameStatus.InProgress;
+    if (this.isOver()) return GameStatus.PlayerLosses;
+    return GameStatus.PlayerWins;
+  }
+
   error(): GameError {
     return GameError.None;
   }
@@ -72,6 +78,12 @@ export class SymbolsNotAllowedError extends Game {
   override error(): GameError {
     return GameError.SymbolsNotAllowed;
   }
+}
+
+export enum GameStatus {
+  PlayerWins,
+  PlayerLosses,
+  InProgress,
 }
 
 export enum GameError {
