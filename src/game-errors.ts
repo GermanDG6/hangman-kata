@@ -8,7 +8,7 @@ export class InvalidSecretWordError extends Game {
 
 export class TrialsMustBeAtLeastOneError extends Game {
   override error() {
-    return GameError.TrialsMustBeAtLeastOne;
+    return GameError.LivesMustBeAtLeastOne;
   }
 }
 
@@ -27,7 +27,7 @@ export class SymbolsNotAllowedError extends Game {
 export enum GameError {
   None,
   InvalidSecretWord,
-  TrialsMustBeAtLeastOne,
+  LivesMustBeAtLeastOne,
   MultipleLettersNotAllowed,
   SymbolsNotAllowed,
 }
