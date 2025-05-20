@@ -66,4 +66,12 @@ describe('The Hangman ', () => {
 
     expect(game.availableLives()).toBe(2);
   });
+
+  it('should end the game if the trials are over', () => {
+    const game = Hangman.startGame('red', 1);
+
+    game.tryTo('w');
+
+    expect(game.isOver()).toBeTruthy();
+  });
 });
