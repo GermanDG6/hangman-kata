@@ -44,7 +44,8 @@ export class Game {
 
     this.trials.push(trial);
 
-    if (!this.secretWord.match(trial)) this.lives--;
+    const isAFailTrial = !this.secretWord.match(trial);
+    if (isAFailTrial) this.lives--;
 
     return new Game(this.secretWord, this.lives);
   }
