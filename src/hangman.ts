@@ -48,6 +48,14 @@ export class Game {
     return this.trials;
   }
 
+  revealedWord(): any {
+    let revealedWord = '';
+    for (const letter of this.secretWord) {
+      revealedWord += '_';
+    }
+    return revealedWord;
+  }
+
   error() {
     return GameError.None;
   }
