@@ -3,12 +3,12 @@ export class Game {
   private lives: number;
   private trials: string[] = [];
 
-  constructor(secretWord, lives) {
+  constructor(secretWord: string, lives: number) {
     this.secretWord = secretWord;
     this.lives = lives;
   }
 
-  tryTo(trial: string) {
+  tryTo(trial: string): Game {
     const hasMultipleCharacters = trial.length > 1;
     if (hasMultipleCharacters) {
       return new MultipleLettersNotAllowedError(this.secretWord, this.lives);
@@ -26,11 +26,11 @@ export class Game {
     return new Game(this.secretWord, this.lives);
   }
 
-  availableLives() {
+  availableLives(): number {
     return this.lives;
   }
 
-  revealedWord(): any {
+  revealedWord(): string {
     let revealedWord = '';
     for (const letter of this.secretWord) {
       this.trials.includes(letter)
@@ -40,31 +40,36 @@ export class Game {
     return revealedWord;
   }
 
-  error() {
+  isOver(): boolean {
+    if (this.lives === 0) return true;
+    return false;
+  }
+
+  error(): GameError {
     return GameError.None;
   }
 }
 
 export class InvalidSecretWordError extends Game {
-  override error() {
+  override error(): GameError {
     return GameError.InvalidSecretWord;
   }
 }
 
 export class TrialsMustBeAtLeastOneError extends Game {
-  override error() {
+  override error(): GameError {
     return GameError.LivesMustBeAtLeastOne;
   }
 }
 
 export class MultipleLettersNotAllowedError extends Game {
-  override error() {
+  override error(): GameError {
     return GameError.MultipleLettersNotAllowed;
   }
 }
 
 export class SymbolsNotAllowedError extends Game {
-  override error() {
+  override error(): GameError {
     return GameError.SymbolsNotAllowed;
   }
 }
