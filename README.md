@@ -1,0 +1,11 @@
+- Debe recibir una palabra secreta que esté en el diccionario
+- La palabra debe contener solamente vocales y consonantes
+- Debe recibir un número máximo de intentos para adivinar la palabra
+
+- El jugador debe ingresar una letra
+- Si ingresa más de una letra debe devolver un error
+- Si se ingresa un caracter que no es una letra debe devolver un error y no se consume un intento
+- El sistema debe devolver una palabra con las letras no acertadas como guión bajo
+- El sistema debe devolver una palabra con las letras acertadas en su lugar
+- Cuando se terminan los intentos se termina el juego
+- Si se aciertan todas las letras de la palabra secreta se gana la partida
