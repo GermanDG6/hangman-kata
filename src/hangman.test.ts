@@ -35,4 +35,13 @@ describe('The Hangman ', () => {
 
     expect(attempt.error()).toBe(GameError.SymbolsNotAllowed);
   });
+
+  it('invalid trials do not affect the number of trials', () => {
+    const trials = 4;
+    const game = Hangman.startGame('house', trials);
+
+    const attempt = game.tryTo('!');
+
+    expect(attempt.availableTrials()).toBe(trials);
+  });
 });
