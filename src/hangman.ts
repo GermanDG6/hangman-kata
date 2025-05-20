@@ -44,6 +44,8 @@ export class Game {
 
     this.trials.push(trial);
 
+    if (!this.secretWord.match(trial)) this.lives--;
+
     return new Game(this.secretWord, this.lives);
   }
 
