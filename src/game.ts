@@ -46,8 +46,11 @@ export class Game {
   }
 
   gameStatus(): GameStatus {
-    if (/[_]/.test(this.revealedWord())) return GameStatus.InProgress;
+    const containsUnderscore = /[_]/.test(this.revealedWord());
+    if (containsUnderscore) return GameStatus.InProgress;
+
     if (this.isOver()) return GameStatus.PlayerLosses;
+
     return GameStatus.PlayerWins;
   }
 
