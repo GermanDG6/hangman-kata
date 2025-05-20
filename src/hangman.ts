@@ -32,11 +32,13 @@ export class Game {
   }
 
   tryTo(trial: string) {
-    if (trial.length > 1) {
+    const hasMultipleCharacters = trial.length > 1;
+    if (hasMultipleCharacters) {
       return new MultipleLettersNotAllowedError(this.secretWord, this.tries);
     }
 
-    if (/[^a-zA-Z]+$/.test(trial))
+    const containsSymbols = /[^a-zA-Z]+$/.test(trial);
+    if (containsSymbols)
       return new SymbolsNotAllowedError(this.secretWord, this.tries);
 
     return new Game(this.secretWord, this.tries);
