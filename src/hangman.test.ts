@@ -50,4 +50,12 @@ describe('The Hangman ', () => {
 
     expect(game.revealedWord()).toBe('___');
   });
+
+  it('should show the revealed letters on his position', () => {
+    const game = Hangman.startGame('red', 3);
+
+    game.tryTo('e');
+
+    expect(game.revealedWord()).toBe('_e_');
+  });
 });
