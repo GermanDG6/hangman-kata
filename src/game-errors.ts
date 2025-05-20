@@ -1,4 +1,4 @@
-import { Game } from './hangman';
+import { Game } from './game';
 
 export class InvalidSecretWordError extends Game {
   override error() {
