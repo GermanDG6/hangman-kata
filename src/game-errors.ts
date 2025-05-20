@@ -18,9 +18,16 @@ export class MultipleLettersNotAllowedError extends Game {
   }
 }
 
+export class SymbolsNotAllowedError extends Game {
+  override error() {
+    return GameError.SymbolsNotAllowed;
+  }
+}
+
 export enum GameError {
   None,
   InvalidSecretWord,
   TrialsMustBeAtLeastOne,
   MultipleLettersNotAllowed,
+  SymbolsNotAllowed,
 }
