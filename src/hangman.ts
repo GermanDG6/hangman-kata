@@ -1,3 +1,10 @@
+import {
+  GameError,
+  InvalidSecretWordError,
+  MultipleLettersNotAllowedError,
+  TrialsMustBeAtLeastOneError,
+} from './game-errors';
+
 export class Hangman {
   static startGame(secretWord: string, tries: number) {
     const hasInvalidCharacters = /[^a-zA-Z]+$/.test(secretWord);
@@ -33,29 +40,4 @@ export class Game {
   error() {
     return GameError.None;
   }
-}
-
-export class InvalidSecretWordError extends Game {
-  override error() {
-    return GameError.InvalidSecretWord;
-  }
-}
-
-export class TrialsMustBeAtLeastOneError extends Game {
-  override error() {
-    return GameError.TrialsMustBeAtLeastOne;
-  }
-}
-
-export class MultipleLettersNotAllowedError extends Game {
-  override error() {
-    return GameError.MultipleLettersNotAllowed;
-  }
-}
-
-export enum GameError {
-  None,
-  InvalidSecretWord,
-  TrialsMustBeAtLeastOne,
-  MultipleLettersNotAllowed,
 }

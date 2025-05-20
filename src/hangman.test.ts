@@ -1,4 +1,6 @@
-import { GameError, Hangman } from './hangman';
+import { GameError } from './game-errors';
+import { Hangman } from './hangman';
+
 describe('The Hangman ', () => {
   it('should receive a secret word that contains only letters', () => {
     const secretWord = 'house!';
