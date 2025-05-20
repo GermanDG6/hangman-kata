@@ -6,7 +6,7 @@ describe('The Hangman ', () => {
 
     const game = Hangman.startGame(secretWord, trials);
 
-    expect(game).toBe(GameError.InvalidSecretWord);
+    expect(game.error()).toBe(GameError.InvalidSecretWord);
   });
 
   it('should receive a positive number of trials', () => {
@@ -15,7 +15,7 @@ describe('The Hangman ', () => {
 
     const game = Hangman.startGame(secretWord, trials);
 
-    expect(game).toBe(GameError.TrialsMustBeAtLeastOne);
+    expect(game.error()).toBe(GameError.TrialsMustBeAtLeastOne);
   });
 
   it('does not allow multiple letters at each trial', () => {
@@ -23,6 +23,6 @@ describe('The Hangman ', () => {
 
     const trial = game.tryTo('ab');
 
-    expect(trial).toBe(GameError.MultipleLettersNotAllowed);
+    expect(trial.error()).toBe(GameError.MultipleLettersNotAllowed);
   });
 });
