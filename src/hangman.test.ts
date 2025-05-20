@@ -1,4 +1,4 @@
-import { GameError } from './game';
+import { GameError, GameStatus } from './game';
 import { Hangman } from './hangman';
 
 describe('The Hangman ', () => {
@@ -73,5 +73,15 @@ describe('The Hangman ', () => {
     game.tryTo('w');
 
     expect(game.isOver()).toBeTruthy();
+  });
+
+  it('is won when all letters are correct', () => {
+    const game = Hangman.startGame('red', 1);
+
+    game.tryTo('r');
+    game.tryTo('e');
+    game.tryTo('d');
+
+    expect(game.gameStatus()).toBe(GameStatus.PlayerWins);
   });
 });
