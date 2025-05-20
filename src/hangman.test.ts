@@ -1,4 +1,4 @@
-import { GameError } from './game-errors';
+import { GameError } from './game';
 import { Hangman } from './hangman';
 
 describe('The Hangman ', () => {

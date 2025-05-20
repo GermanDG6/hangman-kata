@@ -1,8 +1,8 @@
-import { Game } from './game';
 import {
+  Game,
   InvalidSecretWordError,
   TrialsMustBeAtLeastOneError,
-} from './game-errors';
+} from './game';
 
 export class Hangman {
   static startGame(secretWord: string, tries: number) {
